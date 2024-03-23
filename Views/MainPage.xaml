@@ -18,10 +18,10 @@
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Label
-                Text="Start browsing the internet. Enjoy AniWave or MangaFire."
+                Text="Enjoy watching on AniWave or reading on MangaFire. No popups out of nowhere!"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Start browsing the internet or aniwave or mangafire" />
+                SemanticProperties.Description="Enjoy watching on AniWave or reading on MangaFire. No popups out of nowhere!" />
 
         </VerticalStackLayout>
     </ScrollView>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NoPopsUI.Views.MainPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="logo_nopopsui.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="logo for the app NoPopsUI" />
+
+            <Label
+                Text="NoPopsUI"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Start browsing the internet. Enjoy AniWave or MangaFire."
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Start browsing the internet or aniwave or mangafire" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -10,7 +10,7 @@ public partial class MangaFirePage : ContentPage
         WebViewMangaFire.Navigating += WebViewMangaFire_Navigating;
         if (BindingContext is MangaFire)
         {
-            WebViewMangaFire.Source = MangaFire.MangaFireBaseUrl;
+            WebViewMangaFire.Source = MangaFire.BaseUrl;
         }
     }
 
@@ -20,24 +20,27 @@ public partial class MangaFirePage : ContentPage
         {
             if (BindingContext is MangaFire)
             {
-                if (!string.IsNullOrWhiteSpace(e.Url) && Uri.TryCreate(e.Url, UriKind.Absolute, out Uri? mangaFireSanitizedUrl))
+                if (!string.IsNullOrWhiteSpace(e.Url) && Uri.TryCreate(e.Url, UriKind.Absolute, out Uri? mangafireSanitizedUrl))
                 {
-                    MangaFire.SanitizedUrl = mangaFireSanitizedUrl;
+                    MangaFire.SanitizedUrl = mangafireSanitizedUrl;
 
-                    if (MangaFire.FacebookDomain.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        || MangaFire.XDomain.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        || MangaFire.MessengerDomain.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        || MangaFire.RedditDomain.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        || MangaFire.SanitizedUrl.AbsoluteUri.StartsWith(MangaFire.MangaFireBaseUrl)
-                        )
-                    {
-                        e.Cancel = false;
-                    }
+                    e.Cancel = !MangaFire.ShareOnFacebookUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
+                        && !MangaFire.ShareOnTwitterUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
+                        && !MangaFire.ShareOnFacebookMessengerUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
+                        && !MangaFire.ShareOnRedditUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
+                        && !MangaFire.JoinUsOnRedditUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
+                        && !MangaFire.DiscordInviteUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
+                        && !MangaFire.SanitizedUrl.AbsoluteUri.StartsWith(MangaFire.BaseUrl)
+                        && !MangaFire.SanitizedUrl.AbsoluteUri.StartsWith(MangaFire.DisqusBaseUrl);
                 }
                 else
                 {
                     e.Cancel = true;
                 }
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
         catch (Exception)

@@ -6,7 +6,8 @@
     <ContentPage.BindingContext>
         <models:MangaFire />
     </ContentPage.BindingContext>
-    <StackLayout>
-        <WebView x:Name="WebViewMangaFire" VerticalOptions="FillAndExpand" />
-    </StackLayout>
+    <WebView
+        x:Name="WebViewMangaFire"
+        HorizontalOptions="Fill"
+        VerticalOptions="FillAndExpand" />
 </ContentPage>

@@ -2,15 +2,15 @@ using NoPopsUI.Models;
 
 namespace NoPopsUI.Views;
 
-public partial class AniWavePage : ContentPage
+public partial class AniwavePage : ContentPage
 {
-    public AniWavePage()
+    public AniwavePage()
 	{
 		InitializeComponent();
-        WebViewAniWave.Navigating += WebViewAniWave_Navigating;
-        if (BindingContext is AniWave)
+        WebViewAniwave.Navigating += WebViewAniWave_Navigating;
+        if (BindingContext is Aniwave)
         {
-            WebViewAniWave.Source = AniWave.AniWaveBaseUrl;
+            WebViewAniwave.Source = Aniwave.BaseUrl;
         }
     }
 
@@ -18,25 +18,29 @@ public partial class AniWavePage : ContentPage
     {
         try
         {
-            if (BindingContext is AniWave)
+            if (BindingContext is Aniwave)
             {
-                if (!string.IsNullOrWhiteSpace(e.Url) && Uri.TryCreate(e.Url, UriKind.Absolute, out Uri? aniWaveSanitizedUrl))
+                if (!string.IsNullOrWhiteSpace(e.Url) && Uri.TryCreate(e.Url, UriKind.Absolute, out Uri? aniwaveSanitizedUrl))
                 {
-                    AniWave.SanitizedUrl = aniWaveSanitizedUrl;
+                    Aniwave.SanitizedUrl = aniwaveSanitizedUrl;
 
-                    if (AniWave.DiscordDomain.Equals(AniWave.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        || AniWave.XDomain.Equals(AniWave.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        || AniWave.RedditDomain.Equals(AniWave.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        || AniWave.SanitizedUrl.AbsoluteUri.StartsWith(AniWave.AniWaveBaseUrl)
-                        )
-                    {
-                        e.Cancel = false;
-                    }
+                    e.Cancel = !Aniwave.JoinOnDiscordInviteUrl.Equals(Aniwave.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
+                        && !Aniwave.JoinOnTwitterUrl.Equals(Aniwave.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
+                        && !Aniwave.JoinOnRedditUrl.Equals(Aniwave.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
+                        && !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.BaseUrl, StringComparison.CurrentCultureIgnoreCase)
+                        && !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.FriendsMoviesBaseUrl, StringComparison.CurrentCultureIgnoreCase)
+                        && !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.FriendsLiveBaseUrl, StringComparison.CurrentCultureIgnoreCase)
+                        && !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.MangaFireBaseUrl, StringComparison.CurrentCultureIgnoreCase)
+                        && !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.DisqusBaseUrl, StringComparison.CurrentCultureIgnoreCase);
                 }
                 else
                 {
                     e.Cancel = true;
                 }
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
         catch (Exception)

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:NoPopsUI.Models"
+             x:Class="NoPopsUI.Views.HomePage">
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <Image
+            Source="logo_nopopsui.png"
+            HeightRequest="185"
+            Aspect="AspectFit"
+            SemanticProperties.Description="No Pops U I app logo" />
+        <Label
+            Text="NoPopsUI"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1"
+            SemanticProperties.Description="No Pops U I"/>
+        <Label
+            Text="No more popups out of nowhere!"
+            Style="{StaticResource SubHeadline}"
+            SemanticProperties.HeadingLevel="Level2"
+            SemanticProperties.Description="No more popups out of nowhere!" />
+    </VerticalStackLayout>
+</ContentPage>

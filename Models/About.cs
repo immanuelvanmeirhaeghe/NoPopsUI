@@ -2,9 +2,9 @@
 {
     public class About
     {
-        public static string Title => AppInfo.Name;
-        public static string Version => AppInfo.VersionString;
-        public static string GitHubProjectUrl => @"https://github.com/immanuelvanmeirhaeghe/NoPopsUI";
-        public static string Message => @"This app is intended to browse any website on your mobile or portable device without popups and not using any 3rd party browser add-ons.";        
+        public string? Title { get; set; }
+        public string? Version { get; set; }
+        public string Description => @"This app is intended to let you browse Aniwave and MangaFire on your mobile or portable device without popups and not using any 3rd party browser add-ons. Currently, you can enjoy watching series on Aniwave or reading them on MangaFire.";
+        public string GitHubProjectUrl => @"https://github.com/immanuelvanmeirhaeghe/NoPopsUI";
     }
 }

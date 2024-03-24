@@ -5,27 +5,22 @@
     xmlns:views="clr-namespace:NoPopsUI.Views"
     x:Class="NoPopsUI.AppShell"
     Shell.FlyoutBehavior="Disabled">
-
     <TabBar>
         <ShellContent
-            Title="Browse"
-            ContentTemplate="{DataTemplate views:MainPage}"
-            Icon="{OnPlatform 'icon_globe.png', iOS='icon_globe.png', MacCatalyst='icon_globe.png'}" />
-
+            Title="Home"
+            ContentTemplate="{DataTemplate views:HomePage}"
+            Icon="{OnPlatform 'icon_house.png', iOS='icon_house.png', MacCatalyst='icon_house.png'}" />
         <ShellContent
-            Title="AniWave"
-            ContentTemplate="{DataTemplate views:AniWavePage}"
+            Title="Aniwave"
+            ContentTemplate="{DataTemplate views:AniwavePage}"
             Icon="{OnPlatform 'icon_aniwave.png', iOS='icon_aniwave.png', MacCatalyst='icon_aniwave.png'}" />
-
         <ShellContent
             Title="MangaFire"
             ContentTemplate="{DataTemplate views:MangaFirePage}"
             Icon="{OnPlatform 'icon_mangafire.png', iOS='icon_mangafire.png', MacCatalyst='icon_mangafire.png'}" />
-
         <ShellContent
             Title="About"
             ContentTemplate="{DataTemplate views:AboutPage}"
             Icon="{OnPlatform 'icon_about.png', iOS='icon_about.png', MacCatalyst='icon_about.png'}" />
     </TabBar>
-
 </Shell>

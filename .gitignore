@@ -5,3 +5,5 @@
 /.vs/NoPopsUI
 /bin/Debug
 /obj
+/.vs
+/bin/Release

@@ -24,10 +24,7 @@ public partial class AniwavePage : ContentPage
                 {
                     Aniwave.SanitizedUrl = aniwaveSanitizedUrl;
 
-                    e.Cancel = !Aniwave.JoinOnDiscordInviteUrl.Equals(Aniwave.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        && !Aniwave.JoinOnTwitterUrl.Equals(Aniwave.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        && !Aniwave.JoinOnRedditUrl.Equals(Aniwave.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        && !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.BaseUrl, StringComparison.CurrentCultureIgnoreCase)
+                    e.Cancel = !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.BaseUrl, StringComparison.CurrentCultureIgnoreCase)
                         && !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.FriendsMoviesBaseUrl, StringComparison.CurrentCultureIgnoreCase)
                         && !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.FriendsLiveBaseUrl, StringComparison.CurrentCultureIgnoreCase)
                         && !Aniwave.SanitizedUrl.AbsoluteUri.StartsWith(Aniwave.MangaFireBaseUrl, StringComparison.CurrentCultureIgnoreCase)

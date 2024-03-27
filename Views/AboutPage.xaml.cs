@@ -7,24 +7,22 @@ public partial class AboutPage : ContentPage
     public AboutPage()
 	{
 		InitializeComponent();
-        InitAbout();
+       
+        SetBindingContext();
 	}
 
-    private void InitAbout()
-    {
-        About about = new()
-        {
-            Title = AppInfo.Name,
-            Version = AppInfo.VersionString
-        };
-        BindingContext = about;
-    }
+    private void SetBindingContext() => BindingContext = new About {
+        Title = AppInfo.Name,
+        Version = AppInfo.VersionString
+    };
 
-    private async void GoToGitHubProject_Clicked(object sender, EventArgs e)
+    private async void OnGoToGitHubProjectButtonClicked(object sender, EventArgs e)
     {
         if (BindingContext is About about)
         {
-            await Launcher.Default.OpenAsync(about.GitHubProjectUrl);
+            bool launcherOpened = await Launcher.Default.TryOpenAsync(about.GitHubScheme);
+            if (!launcherOpened) 
+                await Launcher.Default.OpenAsync(about.GitHubProjectUrl);
         }
     }
 }

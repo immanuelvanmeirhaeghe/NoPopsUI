@@ -6,10 +6,13 @@
     <ContentPage.BindingContext>
 		<models:About />
     </ContentPage.BindingContext>
-    <VerticalStackLayout Spacing="10" Margin="10">
-        <Image Source="logo_nopopsui.png"
-               SemanticProperties.Description="No Pops U I app logo"
-               HeightRequest="64" />
+    <VerticalStackLayout
+        Margin="5"
+        Spacing="5">
+        <Image 
+            Source="logo_nopopsui.png"
+            SemanticProperties.Description="No Pops U I app logo"
+            HeightRequest="64" />
         <Label
             x:Name="AppTitleLabel"
             FontSize="22"
@@ -25,6 +28,6 @@
             VerticalOptions="FillAndExpand" />        
         <Button
             Text="Source on GitHub" 
-            Clicked="GoToGitHubProject_Clicked" />
+            Clicked="OnGoToGitHubProjectButtonClicked" />
     </VerticalStackLayout>
 </ContentPage>

@@ -20,18 +20,11 @@ public partial class MangaFirePage : ContentPage
         {
             if (BindingContext is MangaFire)
             {
-                if (!string.IsNullOrWhiteSpace(e.Url) && Uri.TryCreate(e.Url, UriKind.Absolute, out Uri? mangafireSanitizedUrl))
+                if (!string.IsNullOrWhiteSpace(e.Url) && Uri.TryCreate(e.Url, UriKind.RelativeOrAbsolute, out Uri? mangafireSanitizedUrl))
                 {
                     MangaFire.SanitizedUrl = mangafireSanitizedUrl;
 
-                    e.Cancel = !MangaFire.ShareOnFacebookUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        && !MangaFire.ShareOnTwitterUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        && !MangaFire.ShareOnFacebookMessengerUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        && !MangaFire.ShareOnRedditUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        && !MangaFire.JoinUsOnRedditUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        && !MangaFire.DiscordInviteUrl.Equals(MangaFire.SanitizedUrl.AbsolutePath, StringComparison.CurrentCultureIgnoreCase)
-                        && !MangaFire.SanitizedUrl.AbsoluteUri.StartsWith(MangaFire.BaseUrl)
-                        && !MangaFire.SanitizedUrl.AbsoluteUri.StartsWith(MangaFire.DisqusBaseUrl);
+                    e.Cancel = !MangaFire.SanitizedUrl.AbsoluteUri.StartsWith(MangaFire.BaseUrl);
                 }
                 else
                 {

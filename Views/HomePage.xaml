@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:NoPopsUI.Models"
              x:Class="NoPopsUI.Views.HomePage">
-    <VerticalStackLayout Spacing="10" Margin="10">
+    <VerticalStackLayout>
         <Image
             Source="logo_nopopsui.png"
             HeightRequest="185"

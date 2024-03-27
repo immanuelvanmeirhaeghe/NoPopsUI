@@ -5,7 +5,11 @@
         public App()
         {
             InitializeComponent();
-
+            RequestedThemeChanged += (s, a) =>
+            {
+                AppTheme currentTheme = a.RequestedTheme;
+                UserAppTheme = currentTheme;
+            };
             MainPage = new AppShell();
         }
     }

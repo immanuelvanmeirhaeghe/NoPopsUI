@@ -7,14 +7,29 @@ public partial class MangaFirePage : ContentPage
     public MangaFirePage()
 	{
 		InitializeComponent();
-        WebViewMangaFire.Navigating += WebViewMangaFire_Navigating;
+        WebViewMangaFire.Navigating += WebViewMangaFireOnNavigating;
         if (BindingContext is MangaFire)
         {
             WebViewMangaFire.Source = MangaFire.BaseUrl;
         }
     }
 
-    private void WebViewMangaFire_Navigating(object? sender, WebNavigatingEventArgs e)
+    private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+    {
+        if (BindingContext is MangaFire)
+        {
+            if (IsSet(Shell.TabBarIsVisibleProperty))
+            {
+                Shell.SetTabBarIsVisible(this, true);
+            }
+            if (IsSet(Shell.NavBarIsVisibleProperty))
+            {
+                Shell.SetNavBarIsVisible(this, true);
+            }
+        }
+    }
+
+    private void WebViewMangaFireOnNavigating(object? sender, WebNavigatingEventArgs e)
     {
         try
         {

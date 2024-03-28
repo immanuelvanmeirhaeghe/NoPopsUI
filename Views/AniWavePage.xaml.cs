@@ -7,14 +7,30 @@ public partial class AniwavePage : ContentPage
     public AniwavePage()
 	{
 		InitializeComponent();
-        WebViewAniwave.Navigating += WebViewAniWave_Navigating;
+        WebViewAniwave.Navigating += OnNavigatingWebViewAniwave;
         if (BindingContext is Aniwave)
         {
             WebViewAniwave.Source = Aniwave.BaseUrl;
         }
     }
 
-    private void WebViewAniWave_Navigating(object? sender, WebNavigatingEventArgs e)
+    private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
+    {
+        if (BindingContext is Aniwave)
+        {
+            if (IsSet(Shell.TabBarIsVisibleProperty))
+            {
+                Shell.SetTabBarIsVisible(this, true);
+            }
+            if (IsSet(Shell.NavBarIsVisibleProperty))
+            {
+                Shell.SetNavBarIsVisible(this, true);
+            }
+            
+        }
+    }
+
+    private void OnNavigatingWebViewAniwave(object? sender, WebNavigatingEventArgs e)
     {
         try
         {

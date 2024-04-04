@@ -7,29 +7,14 @@ public partial class MangaFirePage : ContentPage
     public MangaFirePage()
 	{
 		InitializeComponent();
-        WebViewMangaFire.Navigating += WebViewMangaFireOnNavigating;
-        if (BindingContext is MangaFire)
+        WebViewMangaFire.Navigating += OnNavigatingWebViewMangaFire;        
+        if (BindingContext is MangaFire && !string.IsNullOrWhiteSpace(MangaFire.BaseUrl))
         {
             WebViewMangaFire.Source = MangaFire.BaseUrl;
         }
-    }
+    }   
 
-    private void OnTapGestureRecognizerTapped(object sender, TappedEventArgs args)
-    {
-        if (BindingContext is MangaFire)
-        {
-            if (IsSet(Shell.TabBarIsVisibleProperty))
-            {
-                Shell.SetTabBarIsVisible(this, true);
-            }
-            if (IsSet(Shell.NavBarIsVisibleProperty))
-            {
-                Shell.SetNavBarIsVisible(this, true);
-            }
-        }
-    }
-
-    private void WebViewMangaFireOnNavigating(object? sender, WebNavigatingEventArgs e)
+    private void OnNavigatingWebViewMangaFire(object? sender, WebNavigatingEventArgs e)
     {
         try
         {
@@ -39,7 +24,7 @@ public partial class MangaFirePage : ContentPage
                 {
                     MangaFire.SanitizedUrl = mangafireSanitizedUrl;
 
-                    e.Cancel = !MangaFire.SanitizedUrl.AbsoluteUri.StartsWith(MangaFire.BaseUrl);
+                    e.Cancel = !MangaFire.SanitizedUrl.AbsoluteUri.StartsWith(MangaFire.BaseUrl, StringComparison.CurrentCultureIgnoreCase);
                 }
                 else
                 {

@@ -6,18 +6,12 @@
     <VerticalStackLayout>
         <Image
             Source="logo_nopopsui.png"
-            HeightRequest="185"
-            Aspect="AspectFit"
-            SemanticProperties.Description="No Pops U I app logo" />
+            Style="{StaticResource AppLogo}" />
         <Label
             Text="NoPopsUI"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            SemanticProperties.Description="No Pops U I"/>
+            Style="{StaticResource Headline}" />
         <Label
             Text="No more popups out of nowhere!"
-            Style="{StaticResource SubHeadline}"
-            SemanticProperties.HeadingLevel="Level2"
-            SemanticProperties.Description="No more popups out of nowhere!" />
+            Style="{StaticResource SubHeadline}" />
     </VerticalStackLayout>
 </ContentPage>

@@ -12,17 +12,17 @@ public partial class AboutPage : ContentPage
 	}
 
     private void SetBindingContext() => BindingContext = new About {
-        Title = AppInfo.Name,
-        Version = AppInfo.VersionString
+        AppTitle = AppInfo.Name,
+        AppVersion = AppInfo.VersionString
     };
 
-    private async void OnGoToGitHubProjectButtonClicked(object sender, EventArgs e)
+    private async void OnButtonClickedGoToGitHub(object sender, EventArgs e)
     {
-        if (BindingContext is About about)
+        if (BindingContext is About about
+            && !string.IsNullOrWhiteSpace(about.GitHubScheme)
+            && !await Launcher.Default.TryOpenAsync(about.GitHubScheme))
         {
-            bool launcherOpened = await Launcher.Default.TryOpenAsync(about.GitHubScheme);
-            if (!launcherOpened) 
-                await Launcher.Default.OpenAsync(about.GitHubProjectUrl);
+            await Launcher.Default.OpenAsync(about.GitHubProjectUrl);
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿namespace NoPopsUI.Models
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+
+namespace NoPopsUI.Models
 {
-    public class MangaFire
+    public class MangaFire : ObservableObject
     {
         public static string BaseUrl { get; set; } = @"https://mangafire.to";
         public static Uri? SanitizedUrl { get; set; } = default;
@@ -11,5 +14,18 @@
         public static string ShareOnRedditUrl => @"https://reddit.com/submit?title=MangaFire%20-%20Read%20Manga%20Online%20Free&url=https%3A%2F%2Fmangafire.to";
         public static string JoinUsOnRedditUrl => @"https://www.reddit.com/r/Mangafire";
         public static string DiscordInviteUrl => @"https://discord.com/invite/KRQQKzQ6CS";
+
+        public IRelayCommand GoBackCommand { get; private set; }
+
+        public MangaFire()
+        {
+            GoBackCommand = new RelayCommand(
+                execute: () =>
+                {
+                    Shell.Current.GoToAsync($"//main/home");
+                    //Shell.SetTabBarIsVisible(Shell.Current, true);
+                    //await Shell.Current.Navigation.PopToRootAsync();
+                });           
+        }
     }
 }

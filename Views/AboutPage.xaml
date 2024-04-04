@@ -6,28 +6,25 @@
     <ContentPage.BindingContext>
 		<models:About />
     </ContentPage.BindingContext>
-    <VerticalStackLayout
-        Margin="5"
-        Spacing="5">
+    <VerticalStackLayout>
         <Image 
             Source="logo_nopopsui.png"
-            SemanticProperties.Description="No Pops U I app logo"
-            HeightRequest="64" />
+            Style="{StaticResource AppLogo}"
+            />
         <Label
             x:Name="AppTitleLabel"
-            FontSize="22"
-            FontAttributes="Bold"
-            Text="{Binding Title}" />
+            Style="{StaticResource AppTitle}"
+            Text="{Binding AppTitle}" />
         <Label
             x:Name="AppVersionLabel"
-            FontSize="22"
-            Text="{Binding Version}" />
+            Style="{StaticResource AppVersion}"
+            Text="{Binding AppVersion}" />
         <Label
             x:Name="AppDescriptionLabel"
-            Text="{Binding Description}"
-            VerticalOptions="FillAndExpand" />        
+            Style="{StaticResource AppDescription}"
+            Text="{Binding AppDescription}" />        
         <Button
             Text="Source on GitHub" 
-            Clicked="OnGoToGitHubProjectButtonClicked" />
+            Clicked="OnButtonClickedGoToGitHub" />
     </VerticalStackLayout>
 </ContentPage>

@@ -1,4 +1,7 @@
-﻿namespace NoPopsUI
+﻿using NoPopsUI.Models;
+using NoPopsUI.Views;
+
+namespace NoPopsUI
 {
     public partial class AppShell : Shell
     {
@@ -7,18 +10,32 @@
             InitializeComponent();
         }
 
-        //protected override async void OnNavigating(ShellNavigatingEventArgs args)
-        //{
-        //    base.OnNavigating(args);
+        protected override async void OnNavigating(ShellNavigatingEventArgs args)
+        {
+            base.OnNavigating(args);
 
-        //    ShellNavigatingDeferral token = args.GetDeferral();
+            ShellNavigatingDeferral token = args.GetDeferral();
 
-        //    var result = await DisplayActionSheet("Navigate?", "Cancel", "Yes", "No");
-        //    if (result != "Yes")
-        //    {
-        //        args.Cancel();
-        //    }
-        //    token.Complete();
-        //}
+            if (token != null) 
+            {
+                var navTarget = args.Target.Location.OriginalString;
+                if ((navTarget != null)
+                    && (Navigation.ModalStack.Count == 0)
+                    && (navTarget.EndsWith(aniwaveTab.Route, StringComparison.CurrentCultureIgnoreCase)
+                    || navTarget.EndsWith(mangafireTab.Route, StringComparison.CurrentCultureIgnoreCase)))
+                {                    
+                    if (navTarget.EndsWith(aniwaveTab.Route, StringComparison.CurrentCultureIgnoreCase))
+                    {                       
+                        await Navigation.PushModalAsync(new AniwavePage());
+                    }
+                    else if (navTarget.EndsWith(mangafireTab.Route, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        await Navigation.PushModalAsync(new MangaFirePage());
+                    }
+                }
+               
+                token.Complete();
+            }
+        }
     }
 }

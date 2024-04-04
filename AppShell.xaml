@@ -3,27 +3,33 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:NoPopsUI.Views"
-    x:Class="NoPopsUI.AppShell"
-    Shell.FlyoutBehavior="Disabled">
-    <TabBar>
+    x:Class="NoPopsUI.AppShell">
+    <TabBar
+        Route="main">
         <ShellContent
             Title="Home"
             x:Name="homeTab"
             Route="home"
             ContentTemplate="{DataTemplate views:HomePage}"
             Icon="{OnPlatform 'icon_house.png', iOS='icon_house.png', MacCatalyst='icon_house.png'}" />
-        <ShellContent                           
+        <Tab
+            x:Name="browseTab"
+            Title="Browse"
+            Icon="{OnPlatform 'icon_globe.png', iOS='icon_globe.png', MacCatalyst='icon_globe.png'}"
+            Route="browse">
+            <ShellContent                           
                 Title="Aniwave"
                 x:Name="aniwaveTab"
                 Route="aniwave"
                 ContentTemplate="{DataTemplate views:AniwavePage}"
                 Icon="{OnPlatform 'icon_aniwave.png', iOS='icon_aniwave.png', MacCatalyst='icon_aniwave.png'}" />
-        <ShellContent                
+            <ShellContent                
                 Title="MangaFire"
                 x:Name="mangafireTab"
                 Route="mangafire"
                 ContentTemplate="{DataTemplate views:MangaFirePage}"
                 Icon="{OnPlatform 'icon_mangafire.png', iOS='icon_mangafire.png', MacCatalyst='icon_mangafire.png'}" />
+        </Tab>
         <ShellContent
             Title="About"
             x:Name="aboutTab"

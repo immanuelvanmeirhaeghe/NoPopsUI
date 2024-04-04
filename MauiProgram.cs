@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-
-namespace NoPopsUI
+﻿namespace NoPopsUI
 {
     public static class MauiProgram
     {
@@ -17,10 +15,6 @@ namespace NoPopsUI
                     fonts.AddFont("Font Awesome 6 Free-Regular-400.otf", "FontAwesomeFreeRegular");
                     fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FontAwesomeFreeSolid");
                 });
-
-#if DEBUG
-    		builder.Logging.AddDebug();
-#endif
 
             return builder.Build();
         }

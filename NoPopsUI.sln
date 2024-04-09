@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34707.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoPopsUI", "NoPopsUI.csproj", "{5940ACB0-3488-4C69-B370-A7D14BD2491C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoPopsUI", "NoPopsUI.csproj", "{5940ACB0-3488-4C69-B370-A7D14BD2491C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D61F4BBD-CF30-463C-8D95-7AD2230F4C94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoPopsUI.Maui", "..\NoPopsUI.Maui\NoPopsUI.Maui.csproj", "{0B707DEA-B248-49D7-925D-C599050E3F88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{5940ACB0-3488-4C69-B370-A7D14BD2491C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5940ACB0-3488-4C69-B370-A7D14BD2491C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5940ACB0-3488-4C69-B370-A7D14BD2491C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0B707DEA-B248-49D7-925D-C599050E3F88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B707DEA-B248-49D7-925D-C599050E3F88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B707DEA-B248-49D7-925D-C599050E3F88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B707DEA-B248-49D7-925D-C599050E3F88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

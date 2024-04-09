@@ -1,30 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:NoPopsUI.Models"
+             xmlns:viewmodels="clr-namespace:NoPopsUI.Maui.ViewModels;assembly=NoPopsUI.Maui"
              x:Class="NoPopsUI.Views.AboutPage">
     <ContentPage.BindingContext>
-		<models:About />
+        <viewmodels:About />
     </ContentPage.BindingContext>
-    <VerticalStackLayout>
-        <Image 
-            Source="logo_nopopsui.png"
-            Style="{StaticResource AppLogo}"
-            />
+    <Shell.TitleView>
+        <HorizontalStackLayout
+            Padding="5">
+            <Label
+                x:Name="buyMeACoffee"
+                Text="{Binding BuyMeACoffee}" />
+            <ImageButton
+                Source="{Binding BuyMeACoffeeImageSource}"
+                Command="{Binding BuyMeACoffeeCommand}"/>
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <VerticalStackLayout
+        Margin="15">
+        <Image
+            x:Name="AppLogoImage"
+            Source="{Binding AppLogoImageSource}"
+            Style="{StaticResource AppLogo}" />
+        <HorizontalStackLayout>
+            <Label
+                x:Name="AppTitleLabel"
+                Style="{StaticResource AppTitle}"
+                Text="{Binding AppTitle}" />
+            <Label
+                x:Name="AppVersionLabel"
+                Style="{StaticResource AppVersion}"
+                Text="{Binding AppVersion}" />
+        </HorizontalStackLayout>
         <Label
-            x:Name="AppTitleLabel"
-            Style="{StaticResource AppTitle}"
-            Text="{Binding AppTitle}" />
-        <Label
-            x:Name="AppVersionLabel"
-            Style="{StaticResource AppVersion}"
-            Text="{Binding AppVersion}" />
+            x:Name="AppSloganLabel"            
+            Style="{StaticResource AppSlogan}"
+            Text="{Binding AppSlogan}"/>
         <Label
             x:Name="AppDescriptionLabel"
             Style="{StaticResource AppDescription}"
             Text="{Binding AppDescription}" />        
         <Button
-            Text="Source on GitHub" 
-            Clicked="OnButtonClickedGoToGitHub" />
+            Text="{Binding GoToSource}"
+            Command="{Binding GoToSourceCommand}" />
     </VerticalStackLayout>
 </ContentPage>

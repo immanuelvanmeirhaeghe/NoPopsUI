@@ -12,24 +12,12 @@
             Route="home"
             ContentTemplate="{DataTemplate views:HomePage}"
             Icon="{OnPlatform 'icon_house.png', iOS='icon_house.png', MacCatalyst='icon_house.png'}" />
-        <Tab
-            x:Name="browseTab"
+        <ShellContent
             Title="Browse"
-            Icon="{OnPlatform 'icon_globe.png', iOS='icon_globe.png', MacCatalyst='icon_globe.png'}"
-            Route="browse">
-            <ShellContent                           
-                Title="Aniwave"
-                x:Name="aniwaveTab"
-                Route="aniwave"
-                ContentTemplate="{DataTemplate views:AniwavePage}"
-                Icon="{OnPlatform 'icon_aniwave.png', iOS='icon_aniwave.png', MacCatalyst='icon_aniwave.png'}" />
-            <ShellContent                
-                Title="MangaFire"
-                x:Name="mangafireTab"
-                Route="mangafire"
-                ContentTemplate="{DataTemplate views:MangaFirePage}"
-                Icon="{OnPlatform 'icon_mangafire.png', iOS='icon_mangafire.png', MacCatalyst='icon_mangafire.png'}" />
-        </Tab>
+            x:Name="browseTab"
+            Route="browse"
+            ContentTemplate="{DataTemplate views:CustomBrowserPage}"
+            Icon="{OnPlatform 'icon_globe.png', iOS='icon_globe.png', MacCatalyst='icon_globe.png'}" />
         <ShellContent
             Title="About"
             x:Name="aboutTab"

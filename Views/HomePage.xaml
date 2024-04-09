@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:NoPopsUI.Models"
+             xmlns:viewmodels="clr-namespace:NoPopsUI.Maui.ViewModels;assembly=NoPopsUI.Maui"
              x:Class="NoPopsUI.Views.HomePage">
-    <VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <viewmodels:Home />
+    </ContentPage.BindingContext>
+    <Shell.TitleView>
+        <HorizontalStackLayout
+            Padding="5">
+            <Button
+                x:Name="AppSettingsButton"
+                Text="{Binding AppSettingsButtonText}"
+                Command="{Binding AppSettingsCommand}" 
+                HorizontalOptions="End" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+    <VerticalStackLayout
+        Margin="15">
         <Image
-            Source="logo_nopopsui.png"
+            Source="{Binding AppLogoImageSource}"
             Style="{StaticResource AppLogo}" />
+        <HorizontalStackLayout>
+            <Label
+                x:Name="AppTitleLabel"
+                Style="{StaticResource AppTitle}"
+                Text="{Binding AppTitle}" />
+            <Label
+                x:Name="AppVersionLabel"
+                Style="{StaticResource AppVersion}"
+                Text="{Binding AppVersion}" />
+        </HorizontalStackLayout>
         <Label
-            Text="NoPopsUI"
-            Style="{StaticResource Headline}" />
+            x:Name="AppSloganLabel"            
+            Style="{StaticResource AppSlogan}"
+            Text="{Binding AppSlogan}"/>
         <Label
-            Text="No more popups out of nowhere!"
-            Style="{StaticResource SubHeadline}" />
+            x:Name="HomeDescriptionLabel"
+            Style="{StaticResource AppDescription}"
+            Text="{Binding HomeDescription}" />
     </VerticalStackLayout>
 </ContentPage>

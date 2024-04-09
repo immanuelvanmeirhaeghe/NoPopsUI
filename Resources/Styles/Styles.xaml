@@ -189,42 +189,36 @@
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
     </Style>
 
-    <Style TargetType="Label" x:Key="Headline">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Ginger}, Dark={StaticResource White}}" />
-        <Setter Property="FontSize" Value="Title" />
-        <Setter Property="SemanticProperties.HeadingLevel" Value="Level1" />
-        <Setter Property="SemanticProperties.Description" Value="No Pops U I" />
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="HorizontalTextAlignment" Value="Center" />
-    </Style>
-
-    <Style TargetType="Label" x:Key="SubHeadline">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Ginger}, Dark={StaticResource White}}" />
-        <Setter Property="FontSize" Value="Subtitle" />
-        <Setter Property="SemanticProperties.HeadingLevel" Value="Level2" />
-        <Setter Property="SemanticProperties.Description" Value="No more popups out of nowhere!" />        
-        <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="HorizontalTextAlignment" Value="Center" />
-    </Style>
-
     <Style TargetType="Label" x:Key="AppTitle">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Ginger}, Dark={StaticResource White}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Coffee}, Dark={StaticResource White}}" />
         <Setter Property="FontSize" Value="Title" />
         <Setter Property="SemanticProperties.HeadingLevel" Value="Level1" />
-        <Setter Property="HorizontalOptions" Value="Fill" />
-        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="SemanticProperties.Description" Value="No Pops U I." />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 
     <Style TargetType="Label" x:Key="AppVersion">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Ginger}, Dark={StaticResource White}}" />
-        <Setter Property="FontSize" Value="Subtitle" />
-        <Setter Property="HorizontalOptions" Value="Fill" />
-        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Coffee}, Dark={StaticResource White}}" />
+        <Setter Property="FontSize" Value="Title" />
+        <Setter Property="SemanticProperties.HeadingLevel" Value="Level1" />
+        <Setter Property="SemanticProperties.Description" Value="This app version." />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
 
+    <Style TargetType="Label" x:Key="AppSlogan">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Coffee}, Dark={StaticResource White}}" />
+        <Setter Property="FontSize" Value="Subtitle" />
+        <Setter Property="SemanticProperties.HeadingLevel" Value="Level2" />
+        <Setter Property="SemanticProperties.Description" Value="No more popups out of nowhere!" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+    
     <Style TargetType="Label" x:Key="AppDescription">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Ginger}, Dark={StaticResource White}}" />
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Coffee}, Dark={StaticResource White}}" />
+        <Setter Property="FontSize" Value="Small" />
         <Setter Property="HorizontalOptions" Value="Fill" />
         <Setter Property="HorizontalTextAlignment" Value="Start" />
         <Setter Property="VerticalOptions" Value="FillAndExpand" />
@@ -438,8 +432,8 @@
         <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray200}}" />
         <Setter Property="Shell.NavBarHasShadow" Value="True" />
         <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}" />
-        <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Light={StaticResource Orange}, Dark={StaticResource White}}" />
-        <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Light={StaticResource Orange}, Dark={StaticResource White}}" />
+        <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Light={StaticResource Espresso}, Dark={StaticResource White}}" />
+        <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Light={StaticResource Espresso}, Dark={StaticResource White}}" />
         <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray200}}" />
     </Style>
 
@@ -451,7 +445,7 @@
 
     <Style TargetType="TabbedPage">
         <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray950}}" />
-        <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource Orange}, Dark={StaticResource White}}" />
+        <Setter Property="BarTextColor" Value="{AppThemeBinding Light={StaticResource Espresso}, Dark={StaticResource White}}" />
         <Setter Property="UnselectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray950}}" />
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
     </Style>

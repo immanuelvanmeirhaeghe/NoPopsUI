@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NoPopsUI.Views.OptionsPage"
+             Title="Options"
+             xmlns:viewmodels="clr-namespace:NoPopsUI.Maui.ViewModels;assembly=NoPopsUI.Maui">
+    <ContentPage.BindingContext>
+        <viewmodels:Browser />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <Picker
+                x:Name="WebsitePicker"
+                Title="{Binding WebsitePickerTitle}"
+                ItemsSource="{Binding Websites}"
+                ItemDisplayBinding="{Binding SelectedWebsite.Name}"
+                SelectedItem="{Binding SelectedWebsite}" >
+        </Picker>
+        <Entry
+                x:Name="UrlToAddEntry"
+                Placeholder="{Binding UrlToAddPlaceholder}"                
+                Text="{Binding UrlToAdd}" 
+                ClearButtonVisibility="WhileEditing"
+                Keyboard="Url" />
+        <Button
+                x:Name="AddUrlButton"
+                Text="{Binding AddUrlButtonText}"
+                Command="{Binding AddUrlCommand}" />
+        <Button
+                x:Name="DeleteUrlButton"
+                Text="{Binding DeleteUrlButtonText}"
+                Command="{Binding DeleteUrlCommand}" />
+    </VerticalStackLayout>
+</ContentPage>

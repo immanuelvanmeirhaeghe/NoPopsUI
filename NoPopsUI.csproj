@@ -92,9 +92,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="README.md" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <EmbeddedResource Include="appsetting.json">
 	    <CopyToOutputDirectory></CopyToOutputDirectory>
 	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Include="README.md" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -110,13 +118,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\BrowserPage.xaml.cs">
+	    <DependentUpon>BrowserPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\AboutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CustomBrowserPage.xaml">
+	  <MauiXaml Update="Views\BrowserPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\OptionsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

@@ -7,13 +7,12 @@
         <viewmodels:About />
     </ContentPage.BindingContext>
     <Shell.TitleView>
-        <HorizontalStackLayout
-            Padding="5">
+        <HorizontalStackLayout>
             <Label
                 x:Name="buyMeACoffee"
-                Text="{Binding BuyMeACoffee}" />
+                Text="{Binding BuyMeACoffeeLabelText}" />
             <ImageButton
-                Source="{Binding BuyMeACoffeeImageSource}"
+                Source="{Binding BuyMeACoffeeImageButtonSource}"
                 Command="{Binding BuyMeACoffeeCommand}"/>
         </HorizontalStackLayout>
     </Shell.TitleView>
@@ -40,9 +39,9 @@
         <Label
             x:Name="AppDescriptionLabel"
             Style="{StaticResource AppDescription}"
-            Text="{Binding AppDescription}" />        
+            Text="{Binding AppReadMe}" />        
         <Button
-            Text="{Binding GoToSource}"
+            Text="{Binding GoToSourceButtonText}"
             Command="{Binding GoToSourceCommand}" />
     </VerticalStackLayout>
 </ContentPage>

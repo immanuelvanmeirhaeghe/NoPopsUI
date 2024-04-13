@@ -7,12 +7,11 @@
         <viewmodels:Home />
     </ContentPage.BindingContext>
     <Shell.TitleView>
-        <HorizontalStackLayout
-            Padding="5">
+        <HorizontalStackLayout>
             <Button
-                x:Name="AppSettingsButton"
-                Text="{Binding AppSettingsButtonText}"
-                Command="{Binding AppSettingsCommand}" 
+                x:Name="ShowSettingsUIButton"
+                Text="{Binding ShowSettingsUIButtonText}"
+                Command="{Binding ShowSettingsUICommand}"                
                 HorizontalOptions="End" />
         </HorizontalStackLayout>
     </Shell.TitleView>
@@ -38,6 +37,6 @@
         <Label
             x:Name="HomeDescriptionLabel"
             Style="{StaticResource AppDescription}"
-            Text="{Binding HomeDescription}" />
+            Text="{Binding AppReadMe}" />
     </VerticalStackLayout>
 </ContentPage>

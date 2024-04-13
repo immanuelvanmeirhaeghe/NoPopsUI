@@ -1,40 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NoPopsUI.Views.CustomBrowserPage"
+             x:Class="NoPopsUI.Views.BrowserPage"
              xmlns:viewmodels="clr-namespace:NoPopsUI.Maui.ViewModels;assembly=NoPopsUI.Maui">
     <ContentPage.BindingContext>
-        <viewmodels:CustomBrowser />
+        <viewmodels:Browser />
     </ContentPage.BindingContext>
     <Shell.TitleView>
-        <HorizontalStackLayout
-            Padding="5">
+        <HorizontalStackLayout>
             <Picker
                 x:Name="WebsitePicker"
-                Title="{Binding PickerTitle}"
+                Title="{Binding WebsitePickerTitle}"
                 ItemsSource="{Binding Websites}"
                 ItemDisplayBinding="{Binding SelectedWebsite.Name}"
                 SelectedItem="{Binding SelectedWebsite}" >
             </Picker>
-            <Entry
-                x:Name="NewWebsiteUrlEntry"
-                Placeholder="Enter url"                
-                Text="{Binding NewWebsiteUrl}" 
-                ClearButtonVisibility="WhileEditing"
-                Keyboard="Url"/>
             <Button
-                x:Name="AddWebsiteButton"
-                Text="{Binding AddWebsiteButtonText}"
-                Command="{Binding AddWebsiteCommand}" />
-            <Button
-                x:Name="DeleteWebsiteButton"
-                Text="{Binding DeleteWebsiteButtonText}"
-                Command="{Binding DeleteWebsiteCommand}" />
+                x:Name="OptionsButton"
+                Text="{Binding OptionsButtonText}"
+                Command="{Binding OptionsCommand}" />
         </HorizontalStackLayout>
     </Shell.TitleView>
     <WebView
         x:Name="CustomWebView"
-        Source="{Binding SanitizedUrl}"
+        Source="{Binding SanitizedCustomWebViewSource}"
         HorizontalOptions="Fill"
         VerticalOptions="FillAndExpand" />
 </ContentPage>

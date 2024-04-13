@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.Diagnostics.CodeAnalysis;
+using NoPopsUI.Views;
 using System.Reflection;
 
 namespace NoPopsUI
@@ -8,18 +8,7 @@ namespace NoPopsUI
     {
         private const string AppsettingsFilePath = "appsettings.json";
 
-        private static IConfigurationManager? _config;
-        public static IConfigurationManager Configuration
-        {
-            get => _config;
-            private set
-            {
-                if (value != null)
-                {
-                    _config = value;
-                }
-            }
-        }
+        public static IConfigurationManager? Configuration {  get; private set; }
 
         public static MauiAppBuilder ConfigureApp(this MauiAppBuilder builder)
         {
@@ -35,26 +24,8 @@ namespace NoPopsUI
                     builder.Configuration
                        .AddJsonStream(jsonFS)
                         .Build();
-                }
-                else
-                {
-                    using var fileStream = assembly.GetFile(AppContext.BaseDirectory+AppsettingsFilePath);
-                    if (fileStream != null)
-                    {
-                        builder.Configuration
-                           .AddJsonStream(fileStream)
-                            .Build();
-                    }
-                    else 
-                    {
-                        builder.Configuration
-                           .AddJsonFile(AppsettingsFilePath, optional: true, reloadOnChange: true)
-                            .Build();
-                    }
-                }
+                }              
             }
-
-            builder.Configuration.AddConfiguration(Configuration);
             Configuration = builder.Configuration;
             return builder;
         }
@@ -72,7 +43,8 @@ namespace NoPopsUI
                     fonts.AddFont("Font Awesome 6 Free-Regular-400.otf", "FontAwesomeFreeRegular");
                     fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FontAwesomeFreeSolid");
                 });
-                //.ConfigureApp();
+            //.ConfigureApp();
+            Routing.RegisterRoute("//main/options", typeof(OptionsPage));
 
             return builder.Build();
         }

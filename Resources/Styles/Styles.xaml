@@ -17,6 +17,8 @@
         <Setter Property="Stroke" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
         <Setter Property="StrokeShape" Value="Rectangle"/>
         <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
     </Style>
 
     <Style TargetType="BoxView">
@@ -216,7 +218,7 @@
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
     
-    <Style TargetType="Label" x:Key="AppDescription">
+    <Style TargetType="Label" x:Key="AppReadMe">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Coffee}, Dark={StaticResource White}}" />
         <Setter Property="FontSize" Value="Small" />
         <Setter Property="HorizontalOptions" Value="Fill" />

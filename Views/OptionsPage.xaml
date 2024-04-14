@@ -5,29 +5,45 @@
              Title="Options"
              xmlns:viewmodels="clr-namespace:NoPopsUI.Maui.ViewModels;assembly=NoPopsUI.Maui">
     <ContentPage.BindingContext>
-        <viewmodels:Browser />
+        <viewmodels:Options />
     </ContentPage.BindingContext>
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior Command="{Binding GoBackCommand}"
+                            TextOverride="{Binding GoBackButtonText}"
+                            CommandParameter="{Binding WebsitesParameter}"
+                            IconOverride="{Binding BackButtonBehaviorIconOverride}" />
+    </Shell.BackButtonBehavior>
     <VerticalStackLayout>
-        <Picker
-                x:Name="WebsitePicker"
-                Title="{Binding WebsitePickerTitle}"
-                ItemsSource="{Binding Websites}"
-                ItemDisplayBinding="{Binding SelectedWebsite.Name}"
-                SelectedItem="{Binding SelectedWebsite}" >
-        </Picker>
-        <Entry
-                x:Name="UrlToAddEntry"
-                Placeholder="{Binding UrlToAddPlaceholder}"                
-                Text="{Binding UrlToAdd}" 
-                ClearButtonVisibility="WhileEditing"
-                Keyboard="Url" />
-        <Button
-                x:Name="AddUrlButton"
-                Text="{Binding AddUrlButtonText}"
-                Command="{Binding AddUrlCommand}" />
-        <Button
-                x:Name="DeleteUrlButton"
-                Text="{Binding DeleteUrlButtonText}"
-                Command="{Binding DeleteUrlCommand}" />
+        <Border>
+            <VerticalStackLayout>
+                <Picker
+                    x:Name="WebsitePicker"
+                    Title="{Binding WebsitePickerTitle}"
+                    ItemsSource="{Binding Websites}"
+                    ItemDisplayBinding="{Binding SelectedWebsite.Name}"
+                    SelectedItem="{Binding SelectedWebsite}" >
+                </Picker>
+                <Button
+                    x:Name="DeleteUrlButton"
+                    Text="{Binding DeleteUrlButtonText}"                    
+                    Command="{Binding DeleteUrlCommand}"
+                    ToolTipProperties.Text="{Binding DeleteSelectedWebsiteToolTip}"/>
+                <Line
+                    BackgroundColor="{StaticResource Secondary}"
+                    HorizontalOptions="Fill" 
+                    VerticalOptions="FillAndExpand" />
+                <Entry
+                    x:Name="UrlToAddEntry"
+                    Placeholder="{Binding UrlToAddPlaceholder}"                
+                    Text="{Binding UrlToAdd}" 
+                    ClearButtonVisibility="WhileEditing"
+                    Keyboard="Url" />
+                <Button
+                    x:Name="AddUrlButton"
+                    Text="{Binding AddUrlButtonText}"
+                    Command="{Binding AddUrlCommand}"
+                    ToolTipProperties.Text="{Binding AddWebsiteToolTip}"/>
+            </VerticalStackLayout>
+        </Border>
     </VerticalStackLayout>
 </ContentPage>

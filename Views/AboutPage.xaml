@@ -37,8 +37,8 @@
             Style="{StaticResource AppSlogan}"
             Text="{Binding AppSlogan}"/>
         <Label
-            x:Name="AppDescriptionLabel"
-            Style="{StaticResource AppDescription}"
+            x:Name="AppReadMeLabel"
+            Style="{StaticResource AppReadMe}"
             Text="{Binding AppReadMe}" />        
         <Button
             Text="{Binding GoToSourceButtonText}"

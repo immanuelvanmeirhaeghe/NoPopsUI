@@ -44,8 +44,11 @@ namespace NoPopsUI
                     fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FontAwesomeFreeSolid");
                 });
             //.ConfigureApp();
+            Routing.RegisterRoute("//main/home", typeof(HomePage));            
+            Routing.RegisterRoute("//main/browser", typeof(BrowserPage));
+            Routing.RegisterRoute("//main/about", typeof(AboutPage));
             Routing.RegisterRoute("//main/options", typeof(OptionsPage));
-
+            
             return builder.Build();
         }
     }

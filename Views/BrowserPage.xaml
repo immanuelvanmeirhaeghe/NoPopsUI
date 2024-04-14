@@ -18,7 +18,10 @@
             <Button
                 x:Name="OptionsButton"
                 Text="{Binding OptionsButtonText}"
-                Command="{Binding OptionsCommand}" />
+                Command="{Binding OptionsCommand}"
+                CommandParameter="{Binding WebsitesParameter}"
+                HorizontalOptions="Center"
+                VerticalOptions="End" />
         </HorizontalStackLayout>
     </Shell.TitleView>
     <WebView

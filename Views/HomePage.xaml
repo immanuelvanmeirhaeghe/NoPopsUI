@@ -12,7 +12,8 @@
                 x:Name="ShowSettingsUIButton"
                 Text="{Binding ShowSettingsUIButtonText}"
                 Command="{Binding ShowSettingsUICommand}"                
-                HorizontalOptions="End" />
+                HorizontalOptions="Center"
+                VerticalOptions="End" />
         </HorizontalStackLayout>
     </Shell.TitleView>
     <VerticalStackLayout
@@ -35,8 +36,8 @@
             Style="{StaticResource AppSlogan}"
             Text="{Binding AppSlogan}"/>
         <Label
-            x:Name="HomeDescriptionLabel"
-            Style="{StaticResource AppDescription}"
+            x:Name="AppReadMeLabel"
+            Style="{StaticResource AppReadMe}"
             Text="{Binding AppReadMe}" />
     </VerticalStackLayout>
 </ContentPage>

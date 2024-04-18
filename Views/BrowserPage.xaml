@@ -11,15 +11,14 @@
             <Picker
                 x:Name="WebsitePicker"
                 Title="{Binding WebsitePickerTitle}"
-                ItemsSource="{Binding Websites}"
-                ItemDisplayBinding="{Binding SelectedWebsite.Name}"
-                SelectedItem="{Binding SelectedWebsite}" >
+                ItemsSource="{Binding WebsitePickerItemsSource}"
+                ItemDisplayBinding="{Binding WebsitePickerSelectedItem.Name}"
+                SelectedItem="{Binding WebsitePickerSelectedItem}" >
             </Picker>
             <Button
                 x:Name="OptionsButton"
                 Text="{Binding OptionsButtonText}"
-                Command="{Binding OptionsCommand}"
-                CommandParameter="{Binding WebsitesParameter}"
+                Command="{Binding OptionsButtonCommand}"
                 HorizontalOptions="Center"
                 VerticalOptions="End" />
         </HorizontalStackLayout>

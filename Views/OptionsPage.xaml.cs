@@ -8,10 +8,10 @@ public partial class OptionsPage : ContentPage
 		InitializeComponent();
 		if (BindingContext is Options options)
 		{
-            WebsitePicker.SelectedIndexChanged += options.OnPickerSelectedIndexChanged;
-            WebsitePicker.SetBinding(Picker.ItemsSourceProperty, nameof(options.Websites));
-            WebsitePicker.SetBinding(Picker.SelectedItemProperty, nameof(options.SelectedWebsite));
-            WebsitePicker.ItemDisplayBinding = new Binding(nameof(options.SelectedWebsite.Name));
+            WebsitePicker.SelectedIndexChanged += options.WebsitePickerSelectedIndexChanged;
+            WebsitePicker.SetBinding(Picker.ItemsSourceProperty, nameof(options.WebsitePickerItemsSource));
+            WebsitePicker.SetBinding(Picker.SelectedItemProperty, nameof(options.WebsitePickerSelectedItem));
+            WebsitePicker.ItemDisplayBinding = new Binding(nameof(options.WebsitePickerSelectedItem.Host));
         }
     }
 }

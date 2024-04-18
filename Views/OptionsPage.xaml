@@ -8,10 +8,10 @@
         <viewmodels:Options />
     </ContentPage.BindingContext>
     <Shell.BackButtonBehavior>
-        <BackButtonBehavior Command="{Binding GoBackCommand}"
-                            TextOverride="{Binding GoBackButtonText}"
-                            CommandParameter="{Binding WebsitesParameter}"
-                            IconOverride="{Binding BackButtonBehaviorIconOverride}" />
+        <BackButtonBehavior Command="{Binding GoBackButtonBehaviorCommand}"
+                            TextOverride="{Binding GoBackButtonBehaviorTextOverride}"
+                            CommandParameter="{Binding GoBackButtonBehaviorCommandParameter}"
+                            IconOverride="{Binding GoBackButtonBehaviorIconOverride}" />
     </Shell.BackButtonBehavior>
     <VerticalStackLayout>
         <Border>
@@ -19,30 +19,30 @@
                 <Picker
                     x:Name="WebsitePicker"
                     Title="{Binding WebsitePickerTitle}"
-                    ItemsSource="{Binding Websites}"
-                    ItemDisplayBinding="{Binding SelectedWebsite.Name}"
-                    SelectedItem="{Binding SelectedWebsite}" >
+                    ItemsSource="{Binding WebsitePickerItemsSource}"
+                    ItemDisplayBinding="{Binding WebsitePickerSelectedItem.Host}"
+                    SelectedItem="{Binding WebsitePickerSelectedItem}" >
                 </Picker>
                 <Button
-                    x:Name="DeleteUrlButton"
-                    Text="{Binding DeleteUrlButtonText}"                    
-                    Command="{Binding DeleteUrlCommand}"
-                    ToolTipProperties.Text="{Binding DeleteSelectedWebsiteToolTip}"/>
+                    x:Name="DeleteWebsiteButton"
+                    Text="{Binding DeleteWebsiteButtonText}"                    
+                    Command="{Binding DeleteWebsiteButtonCommand}"
+                    ToolTipProperties.Text="{Binding DeleteWebsiteButtonToolTipText}"/>
                 <Line
                     BackgroundColor="{StaticResource Secondary}"
                     HorizontalOptions="Fill" 
                     VerticalOptions="FillAndExpand" />
                 <Entry
-                    x:Name="UrlToAddEntry"
-                    Placeholder="{Binding UrlToAddPlaceholder}"                
-                    Text="{Binding UrlToAdd}" 
+                    x:Name="AddWebsiteEntry"
+                    Placeholder="{Binding AddWebsiteEntryPlaceholder}"                
+                    Text="{Binding AddWebsiteEntryText}" 
                     ClearButtonVisibility="WhileEditing"
                     Keyboard="Url" />
                 <Button
-                    x:Name="AddUrlButton"
-                    Text="{Binding AddUrlButtonText}"
-                    Command="{Binding AddUrlCommand}"
-                    ToolTipProperties.Text="{Binding AddWebsiteToolTip}"/>
+                    x:Name="AddWebsiteButton"
+                    Text="{Binding AddWebsiteButtonText}"
+                    Command="{Binding AddWebsiteButtonCommand}"
+                    ToolTipProperties.Text="{Binding AddWebsiteButtonToolTipText}"/>
             </VerticalStackLayout>
         </Border>
     </VerticalStackLayout>

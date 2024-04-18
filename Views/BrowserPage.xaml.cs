@@ -7,13 +7,13 @@ public partial class BrowserPage : ContentPage
 	public BrowserPage()
 	{
 		InitializeComponent();
-        if (BindingContext is Browser browser && browser.OnNavigatingWebView != null && browser.OnPickerSelectedIndexChanged != null)
+        if (BindingContext is Browser browser && browser.CustomWebViewNavigating != null && browser.WebsitePickerSelectedIndexChanged != null)
         {
-            CustomWebView.Navigating += browser.OnNavigatingWebView;
-            WebsitePicker.SelectedIndexChanged += browser.OnPickerSelectedIndexChanged;
-            WebsitePicker.SetBinding(Picker.ItemsSourceProperty, nameof(browser.Websites));
-            WebsitePicker.SetBinding(Picker.SelectedItemProperty, nameof(browser.SelectedWebsite));
-            WebsitePicker.ItemDisplayBinding = new Binding(nameof(browser.SelectedWebsite.Name));
+            CustomWebView.Navigating += browser.CustomWebViewNavigating;
+            WebsitePicker.SelectedIndexChanged += browser.WebsitePickerSelectedIndexChanged;
+            WebsitePicker.SetBinding(Picker.ItemsSourceProperty, nameof(browser.WebsitePickerItemsSource));
+            WebsitePicker.SetBinding(Picker.SelectedItemProperty, nameof(browser.WebsitePickerSelectedItem));
+            WebsitePicker.ItemDisplayBinding = new Binding(nameof(browser.WebsitePickerSelectedItem.Host));
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using NoPopsUI.Views;
-using System.Reflection;
 
 namespace NoPopsUI
 {
@@ -8,25 +7,52 @@ namespace NoPopsUI
     {
         private const string AppsettingsFilePath = "appsettings.json";
 
+        public static IDictionary<string, object> RegisteredRoutes { get; private set; } = new Dictionary<string, object>();
+
         public static IConfigurationManager? Configuration {  get; private set; }
 
         public static MauiAppBuilder ConfigureApp(this MauiAppBuilder builder)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            string? name = assembly.GetName().Name;
-            string appsettingsJsonEmbeddedResourceKey = $"{name}.{AppsettingsFilePath}";
-            
-            if (appsettingsJsonEmbeddedResourceKey != null)
+            var jsonFS = Stream.Null;
+            using var readContentTask = Task.Run(async () =>
+                    jsonFS = await FileSystem.OpenAppPackageFileAsync(AppsettingsFilePath)
+            );
+            var config = readContentTask.Result;
+            if (config != null)
             {
-                using var jsonFS = assembly.GetManifestResourceStream(appsettingsJsonEmbeddedResourceKey);
-                if (jsonFS != null)
-                {
-                    builder.Configuration
-                       .AddJsonStream(jsonFS)
-                        .Build();
-                }              
+                builder.Configuration
+                   .AddJsonStream(jsonFS)
+                    .Build();
             }
+
             Configuration = builder.Configuration;
+            return builder;
+        }
+        
+        public static MauiAppBuilder ConfigureRoutes(this MauiAppBuilder builder)
+        {
+            RegisteredRoutes = new Dictionary<string, object>
+            {
+                { "//main/home", typeof(HomePage) },
+                { "//main/browser", typeof(BrowserPage) },
+                { "//main/about", typeof(AboutPage) },
+                { "//main/options", typeof(OptionsPage) },
+            };
+            Maui.Controls.Routing.RegisteredPages = new Dictionary<string, string>
+            {
+                { nameof(HomePage), "//main/home" },
+                { nameof(BrowserPage), "//main/browser" },
+                { nameof(AboutPage), "//main/about" },
+                { nameof(OptionsPage),"//main/options" },
+            };
+
+            if (RegisteredRoutes != null)
+            {
+                foreach (var route in RegisteredRoutes)
+                {
+                    Routing.RegisterRoute(route.Key, (Type)route.Value);
+                }
+            }
             return builder;
         }
 
@@ -43,12 +69,8 @@ namespace NoPopsUI
                     fonts.AddFont("Font Awesome 6 Free-Regular-400.otf", "FontAwesomeFreeRegular");
                     fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FontAwesomeFreeSolid");
                 });
-            //.ConfigureApp();
-            Routing.RegisterRoute("//main/home", typeof(HomePage));            
-            Routing.RegisterRoute("//main/browser", typeof(BrowserPage));
-            Routing.RegisterRoute("//main/about", typeof(AboutPage));
-            Routing.RegisterRoute("//main/options", typeof(OptionsPage));
-            
+            builder.ConfigureApp();
+            builder.ConfigureRoutes();
             return builder.Build();
         }
     }

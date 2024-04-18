@@ -56,6 +56,7 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-android|AnyCPU'">
 	  <ApplicationId>be.dragonlegion.nopopsui</ApplicationId>
 	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidLinkTool>r8</AndroidLinkTool>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
@@ -96,12 +97,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="appsetting.json">
-	    <CopyToOutputDirectory></CopyToOutputDirectory>
-	  </EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiAsset Include="README.md" />
 	</ItemGroup>
 
@@ -121,6 +116,12 @@
 	  <Compile Update="Views\BrowserPage.xaml.cs">
 	    <DependentUpon>BrowserPage.xaml</DependentUpon>
 	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\appsettings.json">
+	    <CopyToOutputDirectory></CopyToOutputDirectory>
+	  </MauiAsset>
 	</ItemGroup>
 
 	<ItemGroup>

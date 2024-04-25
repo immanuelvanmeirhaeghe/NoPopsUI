@@ -99,6 +99,7 @@
 
 	<ItemGroup>
 	  <None Remove="README.md" />
+	  <None Remove="Resources\Images\icon_host.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

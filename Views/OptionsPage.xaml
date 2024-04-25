@@ -13,9 +13,10 @@
                             CommandParameter="{Binding GoBackButtonBehaviorCommandParameter}"
                             IconOverride="{Binding GoBackButtonBehaviorIconOverride}" />
     </Shell.BackButtonBehavior>
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        Margin="15">
         <Border>
-            <VerticalStackLayout>
+            <HorizontalStackLayout>
                 <Picker
                     x:Name="WebsitePicker"
                     Title="{Binding WebsitePickerTitle}"
@@ -27,23 +28,24 @@
                     x:Name="DeleteWebsiteButton"
                     Text="{Binding DeleteWebsiteButtonText}"                    
                     Command="{Binding DeleteWebsiteButtonCommand}"
-                    ToolTipProperties.Text="{Binding DeleteWebsiteButtonToolTipText}"/>
-                <Line
-                    BackgroundColor="{StaticResource Secondary}"
-                    HorizontalOptions="Fill" 
-                    VerticalOptions="FillAndExpand" />
+                    ToolTipProperties.Text="{Binding DeleteWebsiteButtonToolTipText}" />
+            </HorizontalStackLayout>
+        </Border>
+        <Border>
+            <HorizontalStackLayout>
                 <Entry
                     x:Name="AddWebsiteEntry"
                     Placeholder="{Binding AddWebsiteEntryPlaceholder}"                
-                    Text="{Binding AddWebsiteEntryText}" 
-                    ClearButtonVisibility="WhileEditing"
-                    Keyboard="Url" />
+                    Text="{Binding AddWebsiteEntryText}"                    
+                    Keyboard="Url"
+                    ClearButtonVisibility="WhileEditing" />
                 <Button
                     x:Name="AddWebsiteButton"
                     Text="{Binding AddWebsiteButtonText}"
                     Command="{Binding AddWebsiteButtonCommand}"
-                    ToolTipProperties.Text="{Binding AddWebsiteButtonToolTipText}"/>
-            </VerticalStackLayout>
+                    CommandParameter="{Binding AddWebsiteButtonCommandParameter}"
+                    ToolTipProperties.Text="{Binding AddWebsiteButtonToolTipText}" />
+            </HorizontalStackLayout>
         </Border>
     </VerticalStackLayout>
 </ContentPage>

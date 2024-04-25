@@ -9,39 +9,53 @@
     <Shell.TitleView>
         <HorizontalStackLayout>
             <Label
-                x:Name="buyMeACoffee"
+                x:Name="BuyMeACoffeeLabel"
                 Text="{Binding BuyMeACoffeeLabelText}" />
             <ImageButton
+                x:Name="BuyMeACoffeeImageButton"
                 Source="{Binding BuyMeACoffeeImageButtonSource}"
                 Command="{Binding BuyMeACoffeeCommand}"/>
         </HorizontalStackLayout>
     </Shell.TitleView>
     <VerticalStackLayout
         Margin="15">
-        <Image
-            x:Name="AppLogoImage"
-            Source="{Binding AppLogoImageSource}"
-            Style="{StaticResource AppLogo}" />
-        <HorizontalStackLayout>
-            <Label
-                x:Name="AppTitleLabel"
-                Style="{StaticResource AppTitle}"
-                Text="{Binding AppTitle}" />
-            <Label
-                x:Name="AppVersionLabel"
-                Style="{StaticResource AppVersion}"
-                Text="{Binding AppVersion}" />
-        </HorizontalStackLayout>
-        <Label
-            x:Name="AppSloganLabel"            
-            Style="{StaticResource AppSlogan}"
-            Text="{Binding AppSlogan}"/>
-        <Label
-            x:Name="AppReadMeLabel"
-            Style="{StaticResource AppReadMe}"
-            Text="{Binding AppReadMe}" />        
-        <Button
-            Text="{Binding GoToSourceButtonText}"
-            Command="{Binding GoToSourceCommand}" />
+        <Border>
+            <VerticalStackLayout>
+                <Image
+                    x:Name="AppLogoImage"
+                    Style="{StaticResource AppLogo}"
+                    Source="{Binding AppInfo.AppLogoImageSource}" />
+                <HorizontalStackLayout>
+                    <Label
+                        x:Name="AppTitleLabel"
+                        Style="{StaticResource AppTitle}"
+                        Text="{Binding AppInfo.AppTitle}" />
+                    <Label
+                        x:Name="AppVersionLabel"
+                        Style="{StaticResource AppVersion}"
+                        Text="{Binding AppInfo.AppVersion}" />
+                </HorizontalStackLayout>
+                <Label
+                    x:Name="AppSloganLabel"            
+                    Style="{StaticResource AppSlogan}"
+                    Text="{Binding AppInfo.AppSlogan}"/>
+                <Label
+                    x:Name="AppReadMeLabel"
+                    Style="{StaticResource AppReadMe}"
+                    Text="{Binding AppInfo.AppReadMe}" />
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
+                <Button
+                    x:Name="GoToGitHubSourceButton"
+                    Text="{Binding GoToGitHubSourceButtonText}"
+                    Command="{Binding GoToGitHubSourceCommand}" />
+                <Button
+                    x:Name="GoToGitLabSourceButton"
+                    Text="{Binding GoToGitLabSourceButtonText}"
+                    Command="{Binding GoToGitLabSourceCommand}" />
+            </VerticalStackLayout>
+        </Border>
     </VerticalStackLayout>
 </ContentPage>

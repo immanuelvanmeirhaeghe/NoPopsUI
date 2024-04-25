@@ -8,6 +8,9 @@ public partial class OptionsPage : ContentPage
 		InitializeComponent();
 		if (BindingContext is Options options)
 		{
+            AddWebsiteEntry.TextChanged += options.AddWebsiteEntryTextChanged;
+            //AddWebsiteEntry.Completed += options.AddWebsiteEntryCompleted;
+            AddWebsiteEntry.SetBinding(Entry.TextProperty, nameof(options.AddWebsiteEntryText));
             WebsitePicker.SelectedIndexChanged += options.WebsitePickerSelectedIndexChanged;
             WebsitePicker.SetBinding(Picker.ItemsSourceProperty, nameof(options.WebsitePickerItemsSource));
             WebsitePicker.SetBinding(Picker.SelectedItemProperty, nameof(options.WebsitePickerSelectedItem));

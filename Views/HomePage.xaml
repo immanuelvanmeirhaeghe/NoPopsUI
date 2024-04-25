@@ -11,33 +11,40 @@
             <Button
                 x:Name="ShowSettingsUIButton"
                 Text="{Binding ShowSettingsUIButtonText}"
-                Command="{Binding ShowSettingsUICommand}"                
-                HorizontalOptions="Center"
-                VerticalOptions="End" />
+                Command="{Binding ShowSettingsUIButtonCommand}" />
         </HorizontalStackLayout>
     </Shell.TitleView>
     <VerticalStackLayout
         Margin="15">
-        <Image
-            Source="{Binding AppLogoImageSource}"
-            Style="{StaticResource AppLogo}" />
-        <HorizontalStackLayout>
-            <Label
-                x:Name="AppTitleLabel"
-                Style="{StaticResource AppTitle}"
-                Text="{Binding AppTitle}" />
-            <Label
-                x:Name="AppVersionLabel"
-                Style="{StaticResource AppVersion}"
-                Text="{Binding AppVersion}" />
-        </HorizontalStackLayout>
-        <Label
-            x:Name="AppSloganLabel"            
-            Style="{StaticResource AppSlogan}"
-            Text="{Binding AppSlogan}"/>
-        <Label
-            x:Name="AppReadMeLabel"
-            Style="{StaticResource AppReadMe}"
-            Text="{Binding AppReadMe}" />
+        <Border>
+            <VerticalStackLayout>
+                <Image
+                    x:Name="AppLogoImage"
+                    Style="{StaticResource AppLogo}"
+                    Source="{Binding AppInfo.AppLogoImageSource}" />
+                <HorizontalStackLayout>
+                    <Label
+                        x:Name="AppTitleLabel"
+                        Style="{StaticResource AppTitle}"
+                        Text="{Binding AppInfo.AppTitle}" />
+                    <Label
+                        x:Name="AppVersionLabel"
+                        Style="{StaticResource AppVersion}"
+                        Text="{Binding AppInfo.AppVersion}" />
+                </HorizontalStackLayout>
+                <Label
+                    x:Name="AppSloganLabel"            
+                    Style="{StaticResource AppSlogan}"
+                    Text="{Binding AppInfo.AppSlogan}"/>               
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
+                <Label
+                    x:Name="HomePageLabel"
+                    Style="{StaticResource AppReadMe}"
+                    Text="{Binding HomePageLabelText}"/>
+            </VerticalStackLayout>
+        </Border>
     </VerticalStackLayout>
 </ContentPage>

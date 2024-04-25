@@ -12,20 +12,18 @@
                 x:Name="WebsitePicker"
                 Title="{Binding WebsitePickerTitle}"
                 ItemsSource="{Binding WebsitePickerItemsSource}"
-                ItemDisplayBinding="{Binding WebsitePickerSelectedItem.Name}"
+                ItemDisplayBinding="{Binding WebsitePickerSelectedItem.Host}"
                 SelectedItem="{Binding WebsitePickerSelectedItem}" >
             </Picker>
             <Button
-                x:Name="OptionsButton"
-                Text="{Binding OptionsButtonText}"
-                Command="{Binding OptionsButtonCommand}"
-                HorizontalOptions="Center"
-                VerticalOptions="End" />
+                x:Name="GoToOptionsButton"
+                Text="{Binding GoToOptionsButtonText}"
+                Command="{Binding GoToOptionsButtonCommand}" />
         </HorizontalStackLayout>
     </Shell.TitleView>
     <WebView
         x:Name="CustomWebView"
-        Source="{Binding SanitizedCustomWebViewSource}"
+        Source="{Binding CustomWebViewSource}"
         HorizontalOptions="Fill"
         VerticalOptions="FillAndExpand" />
 </ContentPage>

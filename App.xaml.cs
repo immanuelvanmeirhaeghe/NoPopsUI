@@ -1,4 +1,6 @@
-﻿namespace NoPopsUI
+﻿using NoPopsUI.Maui.Services;
+
+namespace NoPopsUI
 {
     public partial class App : Application
     {
@@ -11,6 +13,16 @@
                 UserAppTheme = currentTheme;
             };
             MainPage = new AppShell();
+            ManageResources();
+        }
+
+        private static void ManageResources()
+        {
+            ResourceManager.MergedDictionaries = Shell.Current.Resources?.MergedDictionaries ?? [];
+            if (ResourceManager.MergedDictionaries != null)
+            {
+                ResourceManager.MergeUserOptions();
+            }
         }
     }
 }

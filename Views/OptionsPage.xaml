@@ -9,42 +9,54 @@
     </ContentPage.BindingContext>
     <Shell.BackButtonBehavior>
         <BackButtonBehavior Command="{Binding GoBackButtonBehaviorCommand}"
-                            TextOverride="{Binding GoBackButtonBehaviorTextOverride}"
-                            CommandParameter="{Binding GoBackButtonBehaviorCommandParameter}"
-                            IconOverride="{Binding GoBackButtonBehaviorIconOverride}" />
+                    CommandParameter="{Binding GoBackButtonBehaviorCommandParameter}"
+                    IconOverride="{Binding GoBackButtonBehaviorIconOverride}" />
     </Shell.BackButtonBehavior>
-    <VerticalStackLayout
-        Margin="15">
+    <VerticalStackLayout>
         <Border>
-            <HorizontalStackLayout>
+            <HorizontalStackLayout
+                Padding="4">
                 <Picker
                     x:Name="WebsitePicker"
                     Title="{Binding WebsitePickerTitle}"
                     ItemsSource="{Binding WebsitePickerItemsSource}"
                     ItemDisplayBinding="{Binding WebsitePickerSelectedItem.Host}"
-                    SelectedItem="{Binding WebsitePickerSelectedItem}" >
+                    SelectedItem="{Binding WebsitePickerSelectedItem}" 
+                    VerticalOptions="Center"
+                    WidthRequest="150"
+                    Margin="4">
                 </Picker>
                 <Button
                     x:Name="DeleteWebsiteButton"
                     Text="{Binding DeleteWebsiteButtonText}"                    
                     Command="{Binding DeleteWebsiteButtonCommand}"
-                    ToolTipProperties.Text="{Binding DeleteWebsiteButtonToolTipText}" />
+                    ToolTipProperties.Text="{Binding DeleteWebsiteButtonToolTipText}" 
+                    VerticalOptions="Center"
+                    WidthRequest="150"
+                    Margin="4" />
             </HorizontalStackLayout>
         </Border>
         <Border>
-            <HorizontalStackLayout>
+            <HorizontalStackLayout
+                Padding="4">
                 <Entry
                     x:Name="AddWebsiteEntry"
                     Placeholder="{Binding AddWebsiteEntryPlaceholder}"                
                     Text="{Binding AddWebsiteEntryText}"                    
                     Keyboard="Url"
-                    ClearButtonVisibility="WhileEditing" />
+                    ClearButtonVisibility="WhileEditing"
+                    VerticalOptions="Center"
+                    WidthRequest="150"
+                    Margin="4"/>
                 <Button
                     x:Name="AddWebsiteButton"
                     Text="{Binding AddWebsiteButtonText}"
                     Command="{Binding AddWebsiteButtonCommand}"
                     CommandParameter="{Binding AddWebsiteButtonCommandParameter}"
-                    ToolTipProperties.Text="{Binding AddWebsiteButtonToolTipText}" />
+                    ToolTipProperties.Text="{Binding AddWebsiteButtonToolTipText}"
+                    VerticalOptions="Center" 
+                    WidthRequest="150"
+                    Margin="4" />
             </HorizontalStackLayout>
         </Border>
     </VerticalStackLayout>

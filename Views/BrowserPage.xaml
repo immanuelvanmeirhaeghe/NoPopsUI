@@ -8,17 +8,30 @@
     </ContentPage.BindingContext>
     <Shell.TitleView>
         <HorizontalStackLayout>
+            <ImageButton
+                x:Name="GoToHomePageImageButton"
+                Source="{Binding GoToHomePageImageButtonSource}"
+                Command="{Binding GoToHomePageImageButtonCommand}"
+                VerticalOptions="Center"
+                WidthRequest="44"
+                HeightRequest="44"
+                Margin="4"/>
             <Picker
                 x:Name="WebsitePicker"
                 Title="{Binding WebsitePickerTitle}"
                 ItemsSource="{Binding WebsitePickerItemsSource}"
                 ItemDisplayBinding="{Binding WebsitePickerSelectedItem.Host}"
-                SelectedItem="{Binding WebsitePickerSelectedItem}" >
+                SelectedItem="{Binding WebsitePickerSelectedItem}" 
+                VerticalOptions="Center"
+                WidthRequest="150"
+                Margin="4">
             </Picker>
             <Button
                 x:Name="GoToOptionsButton"
                 Text="{Binding GoToOptionsButtonText}"
-                Command="{Binding GoToOptionsButtonCommand}" />
+                Command="{Binding GoToOptionsButtonCommand}"
+                VerticalOptions="Center"
+                Margin="4"/>
         </HorizontalStackLayout>
     </Shell.TitleView>
     <WebView

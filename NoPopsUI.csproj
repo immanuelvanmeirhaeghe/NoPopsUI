@@ -98,11 +98,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="README.md" />
-	  <None Remove="Resources\Images\icon_host.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiAsset Include="README.md" />
 	</ItemGroup>
 
@@ -116,12 +111,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\NoPopsUI.Maui\NoPopsUI.Maui.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Update="Views\BrowserPage.xaml.cs">
-	    <DependentUpon>BrowserPage.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>

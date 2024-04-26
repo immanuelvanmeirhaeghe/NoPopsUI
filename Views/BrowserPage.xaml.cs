@@ -7,7 +7,7 @@ public partial class BrowserPage : ContentPage
 	public BrowserPage()
 	{
 		InitializeComponent();
-        if (BindingContext is Browser browser && browser.CustomWebViewNavigating != null && browser.WebsitePickerSelectedIndexChanged != null)
+        if (BindingContext is Browser browser)
         {
             CustomWebView.Navigating += browser.CustomWebViewNavigating;
             WebsitePicker.SelectedIndexChanged += browser.WebsitePickerSelectedIndexChanged;

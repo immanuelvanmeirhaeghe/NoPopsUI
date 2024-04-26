@@ -11,11 +11,12 @@
             <Button
                 x:Name="ShowSettingsUIButton"
                 Text="{Binding ShowSettingsUIButtonText}"
-                Command="{Binding ShowSettingsUIButtonCommand}" />
+                Command="{Binding ShowSettingsUIButtonCommand}"
+                VerticalOptions="Center"
+                Margin="4"/>
         </HorizontalStackLayout>
     </Shell.TitleView>
-    <VerticalStackLayout
-        Margin="15">
+    <VerticalStackLayout>
         <Border>
             <VerticalStackLayout>
                 <Image
@@ -35,11 +36,7 @@
                 <Label
                     x:Name="AppSloganLabel"            
                     Style="{StaticResource AppSlogan}"
-                    Text="{Binding AppInfo.AppSlogan}"/>               
-            </VerticalStackLayout>
-        </Border>
-        <Border>
-            <VerticalStackLayout>
+                    Text="{Binding AppInfo.AppSlogan}"/>
                 <Label
                     x:Name="HomePageLabel"
                     Style="{StaticResource AppReadMe}"

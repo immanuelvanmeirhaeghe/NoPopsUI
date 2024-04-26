@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using NoPopsUI.Views;
+using CustomRouting = NoPopsUI.Maui.Controls.Routing;
+using CustomConfigurationManager = NoPopsUI.Maui.Services.ConfigurationManager;
 
 namespace NoPopsUI
 {
@@ -9,7 +11,7 @@ namespace NoPopsUI
 
         public static IDictionary<string, object> RegisteredRoutes { get; private set; } = new Dictionary<string, object>();
 
-        public static IConfigurationManager? Configuration {  get; private set; }
+        public static IConfiguration? Configuration { get; private set; }
 
         public static MauiAppBuilder ConfigureApp(this MauiAppBuilder builder)
         {
@@ -26,6 +28,7 @@ namespace NoPopsUI
             }
 
             Configuration = builder.Configuration;
+            CustomConfigurationManager.Configuration = Configuration;
             return builder;
         }
         
@@ -38,7 +41,8 @@ namespace NoPopsUI
                 { "//main/about", typeof(AboutPage) },
                 { "//main/options", typeof(OptionsPage) },
             };
-            Maui.Controls.Routing.RegisteredPages = new Dictionary<string, string>
+
+            CustomRouting.RegisteredPages = new Dictionary<string, string>
             {
                 { nameof(HomePage), "//main/home" },
                 { nameof(BrowserPage), "//main/browser" },
@@ -68,9 +72,10 @@ namespace NoPopsUI
                     fonts.AddFont("Font Awesome 6 Brands-Regular-400.otf", "FontAwesomeBrandsRegular");
                     fonts.AddFont("Font Awesome 6 Free-Regular-400.otf", "FontAwesomeFreeRegular");
                     fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FontAwesomeFreeSolid");
-                });
-            builder.ConfigureApp();
-            builder.ConfigureRoutes();
+                })
+                .ConfigureApp()
+                .ConfigureRoutes();
+
             return builder.Build();
         }
     }

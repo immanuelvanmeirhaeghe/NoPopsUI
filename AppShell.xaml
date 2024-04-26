@@ -16,6 +16,7 @@
             Title="Browse"
             x:Name="browseTab"
             Route="browser"
+            Shell.TabBarIsVisible="False"
             ContentTemplate="{DataTemplate views:BrowserPage}"
             Icon="{OnPlatform 'icon_globe.png', iOS='icon_globe.png', MacCatalyst='icon_globe.png'}" />
         <ShellContent

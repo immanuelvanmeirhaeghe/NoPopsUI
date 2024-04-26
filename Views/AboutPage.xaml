@@ -10,15 +10,20 @@
         <HorizontalStackLayout>
             <Label
                 x:Name="BuyMeACoffeeLabel"
-                Text="{Binding BuyMeACoffeeLabelText}" />
+                Text="{Binding BuyMeACoffeeLabelText}" 
+                VerticalOptions="Center"
+                WidthRequest="125"
+                HeightRequest="44"
+                Margin="4"/>
             <ImageButton
                 x:Name="BuyMeACoffeeImageButton"
                 Source="{Binding BuyMeACoffeeImageButtonSource}"
-                Command="{Binding BuyMeACoffeeCommand}"/>
+                Command="{Binding BuyMeACoffeeCommand}"
+                VerticalOptions="Center"
+                Margin="4"/>
         </HorizontalStackLayout>
     </Shell.TitleView>
-    <VerticalStackLayout
-        Margin="15">
+    <VerticalStackLayout>
         <Border>
             <VerticalStackLayout>
                 <Image
@@ -43,18 +48,18 @@
                     x:Name="AppReadMeLabel"
                     Style="{StaticResource AppReadMe}"
                     Text="{Binding AppInfo.AppReadMe}" />
-            </VerticalStackLayout>
-        </Border>
-        <Border>
-            <VerticalStackLayout>
                 <Button
                     x:Name="GoToGitHubSourceButton"
                     Text="{Binding GoToGitHubSourceButtonText}"
-                    Command="{Binding GoToGitHubSourceCommand}" />
+                    Command="{Binding GoToGitHubSourceCommand}"
+                    HorizontalOptions="Center"
+                    Margin="4"/>
                 <Button
                     x:Name="GoToGitLabSourceButton"
                     Text="{Binding GoToGitLabSourceButtonText}"
-                    Command="{Binding GoToGitLabSourceCommand}" />
+                    Command="{Binding GoToGitLabSourceCommand}" 
+                    HorizontalOptions="Center"
+                    Margin="4"/>
             </VerticalStackLayout>
         </Border>
     </VerticalStackLayout>

@@ -6,6 +6,7 @@
     <ActiveDebugProfile>Honor70 (Android 13.0 - API 33)</ActiveDebugProfile>
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
     <DefaultDevice>honor70</DefaultDevice>
+    <SelectedDevice>Android Emulator</SelectedDevice>
   </PropertyGroup>
   <ItemGroup>
     <MauiXaml Update="Views\AboutPage.xaml">

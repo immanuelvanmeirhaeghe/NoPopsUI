@@ -6,16 +6,6 @@
     <ContentPage.BindingContext>
         <viewmodels:Home />
     </ContentPage.BindingContext>
-    <Shell.TitleView>
-        <HorizontalStackLayout>
-            <Button
-                x:Name="ShowSettingsUIButton"
-                Text="{Binding ShowSettingsUIButtonText}"
-                Command="{Binding ShowSettingsUIButtonCommand}"
-                VerticalOptions="Center"
-                Margin="4"/>
-        </HorizontalStackLayout>
-    </Shell.TitleView>
     <VerticalStackLayout>
         <Border>
             <VerticalStackLayout>
@@ -37,10 +27,22 @@
                     x:Name="AppSloganLabel"            
                     Style="{StaticResource AppSlogan}"
                     Text="{Binding AppInfo.AppSlogan}"/>
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
+                <Label
+                    x:Name="AppReadMe"
+                    Style="{StaticResource AppReadMe}"
+                    Text="{Binding HomePageLabelText}"/>
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
                 <Label
                     x:Name="HomePageLabel"
                     Style="{StaticResource AppReadMe}"
-                    Text="{Binding HomePageLabelText}"/>
+                    Text="{Binding AppInfo.AppReadMe}"/>
             </VerticalStackLayout>
         </Border>
     </VerticalStackLayout>

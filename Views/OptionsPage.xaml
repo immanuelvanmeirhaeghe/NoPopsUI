@@ -3,60 +3,70 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NoPopsUI.Views.OptionsPage"
              Title="Options"
-             xmlns:viewmodels="clr-namespace:NoPopsUI.Maui.ViewModels;assembly=NoPopsUI.Maui">
+             xmlns:viewmodels="clr-namespace:NoPopsUI.Maui.ViewModels;assembly=NoPopsUI.Maui"
+             Shell.TabBarIsVisible="False">
     <ContentPage.BindingContext>
         <viewmodels:Options />
     </ContentPage.BindingContext>
     <Shell.BackButtonBehavior>
-        <BackButtonBehavior Command="{Binding GoBackButtonBehaviorCommand}"
-                    CommandParameter="{Binding GoBackButtonBehaviorCommandParameter}"
-                    IconOverride="{Binding GoBackButtonBehaviorIconOverride}" />
+        <BackButtonBehavior
+                x:Name="GoBackButton"
+                IconOverride="{Binding GoBackButtonBehaviorIconOverride}"
+                CommandParameter="{Binding GoBackButtonBehaviorCommandParameter}"
+                Command="{Binding GoBackButtonBehaviorCommand}">
+        </BackButtonBehavior>
     </Shell.BackButtonBehavior>
     <VerticalStackLayout>
         <Border>
-            <HorizontalStackLayout
-                Padding="4">
+            <HorizontalStackLayout>
                 <Picker
                     x:Name="WebsitePicker"
                     Title="{Binding WebsitePickerTitle}"
                     ItemsSource="{Binding WebsitePickerItemsSource}"
                     ItemDisplayBinding="{Binding WebsitePickerSelectedItem.Host}"
-                    SelectedItem="{Binding WebsitePickerSelectedItem}" 
-                    VerticalOptions="Center"
-                    WidthRequest="150"
-                    Margin="4">
+                    SelectedItem="{Binding WebsitePickerSelectedItem}">
                 </Picker>
                 <Button
                     x:Name="DeleteWebsiteButton"
                     Text="{Binding DeleteWebsiteButtonText}"                    
                     Command="{Binding DeleteWebsiteButtonCommand}"
-                    ToolTipProperties.Text="{Binding DeleteWebsiteButtonToolTipText}" 
-                    VerticalOptions="Center"
-                    WidthRequest="150"
-                    Margin="4" />
+                    ToolTipProperties.Text="{Binding DeleteWebsiteButtonToolTipText}" />
             </HorizontalStackLayout>
         </Border>
         <Border>
-            <HorizontalStackLayout
-                Padding="4">
+            <HorizontalStackLayout>
                 <Entry
                     x:Name="AddWebsiteEntry"
                     Placeholder="{Binding AddWebsiteEntryPlaceholder}"                
                     Text="{Binding AddWebsiteEntryText}"                    
                     Keyboard="Url"
-                    ClearButtonVisibility="WhileEditing"
-                    VerticalOptions="Center"
-                    WidthRequest="150"
-                    Margin="4"/>
+                    ClearButtonVisibility="WhileEditing"/>
                 <Button
                     x:Name="AddWebsiteButton"
                     Text="{Binding AddWebsiteButtonText}"
                     Command="{Binding AddWebsiteButtonCommand}"
                     CommandParameter="{Binding AddWebsiteButtonCommandParameter}"
-                    ToolTipProperties.Text="{Binding AddWebsiteButtonToolTipText}"
-                    VerticalOptions="Center" 
-                    WidthRequest="150"
-                    Margin="4" />
+                    ToolTipProperties.Text="{Binding AddWebsiteButtonToolTipText}" />
+            </HorizontalStackLayout>
+        </Border>
+        <Border>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="UseDefaultBrowserLabel"                    
+                    Text="{Binding UseDefaultBrowserLabelText}"/>
+                <CheckBox
+                    x:Name="UseDefaultBrowserCheckBox"
+                    IsChecked="{Binding UseDefaultBrowser}"/>
+            </HorizontalStackLayout>
+        </Border>
+        <Border>
+            <HorizontalStackLayout>
+                <Label
+                    x:Name="AllowTransformsLabel"                    
+                    Text="{Binding AllowTransformsLabelText}"/>
+                <CheckBox
+                    x:Name="AllowTransformsCheckBox"
+                    IsChecked="{Binding AllowTransforms}"/>
             </HorizontalStackLayout>
         </Border>
     </VerticalStackLayout>

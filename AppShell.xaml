@@ -5,6 +5,8 @@
     xmlns:views="clr-namespace:NoPopsUI.Views"
     x:Class="NoPopsUI.AppShell">
     <TabBar
+        Title="Main"
+        x:Name="mainTabBar"
         Route="main">
         <ShellContent
             Title="Home"
@@ -18,7 +20,8 @@
             Route="browser"
             Shell.TabBarIsVisible="False"
             ContentTemplate="{DataTemplate views:BrowserPage}"
-            Icon="{OnPlatform 'icon_globe.png', iOS='icon_globe.png', MacCatalyst='icon_globe.png'}" />
+            Icon="{OnPlatform 'icon_globe.png', iOS='icon_globe.png', MacCatalyst='icon_globe.png'}"/>
+             
         <ShellContent
             Title="About"
             x:Name="aboutTab"

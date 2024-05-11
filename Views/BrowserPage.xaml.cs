@@ -4,9 +4,9 @@ namespace NoPopsUI.Views;
 
 public partial class BrowserPage : ContentPage
 {
-	public BrowserPage()
-	{
-		InitializeComponent();
+    public BrowserPage()
+    {
+        InitializeComponent();
         if (BindingContext is Browser browser)
         {
             CustomWebView.Navigating += browser.CustomWebViewNavigating;

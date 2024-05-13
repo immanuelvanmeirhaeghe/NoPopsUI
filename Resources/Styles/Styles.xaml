@@ -184,6 +184,10 @@
 
     <Style TargetType="ImageButton" x:Key="BuyMeACoffeeImageButton">
         <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="BorderWidth" Value="0"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="WidthRequest" Value="150" />
+        <Setter Property="HeightRequest" Value="50" />
         <Setter Property="Margin" Value="4" />
     </Style>
 
@@ -268,14 +272,23 @@
         <Setter Property="HorizontalOptions" Value="Start" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
-    
+
     <Style TargetType="Label" x:Key="AppReadMe">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Coffee}, Dark={StaticResource Espresso}}" />
         <Setter Property="FontSize" Value="Small" />
         <Setter Property="HorizontalOptions" Value="Fill" />
         <Setter Property="HorizontalTextAlignment" Value="Start" />
         <Setter Property="VerticalOptions" Value="FillAndExpand" />
-    </Style>    
+    </Style>
+
+    <Style TargetType="Label" x:Key="BuyMeACoffeeLabel">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Coffee}, Dark={StaticResource Espresso}}" />
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        <Setter Property="WidthRequest" Value="150" />
+    </Style>
 
     <Style TargetType="ListView">
         <Setter Property="SeparatorColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />

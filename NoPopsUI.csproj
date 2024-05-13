@@ -23,7 +23,7 @@
 		<ApplicationTitle>NoPopsUI</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.dragonlegion.nopopsui</ApplicationId>
+		<ApplicationId>be.dragonlegion.nopopsui</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -82,10 +82,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#518E78" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#78D6B5" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#518E78" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#78D6B5" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />	
@@ -98,6 +98,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiAsset Include="appsettings.json">
+	    <CopyToOutputDirectory></CopyToOutputDirectory>
+	  </MauiAsset>
 	  <MauiAsset Include="README.md" />
 	</ItemGroup>
 
@@ -111,12 +114,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\NoPopsUI.Maui\NoPopsUI.Maui.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiAsset Update="Resources\Raw\appsettings.json">
-	    <CopyToOutputDirectory></CopyToOutputDirectory>
-	  </MauiAsset>
 	</ItemGroup>
 
 	<ItemGroup>

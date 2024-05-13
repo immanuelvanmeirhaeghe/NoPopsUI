@@ -15,13 +15,12 @@
             ContentTemplate="{DataTemplate views:HomePage}"
             Icon="{OnPlatform 'icon_house.png', iOS='icon_house.png', MacCatalyst='icon_house.png'}" />
         <ShellContent
-            Title="Browse"
-            x:Name="browseTab"
+            Title="Browser"
+            x:Name="browserTab"
             Route="browser"
             Shell.TabBarIsVisible="False"
             ContentTemplate="{DataTemplate views:BrowserPage}"
-            Icon="{OnPlatform 'icon_globe.png', iOS='icon_globe.png', MacCatalyst='icon_globe.png'}"/>
-             
+            Icon="{OnPlatform 'icon_globe.png', iOS='icon_globe.png', MacCatalyst='icon_globe.png'}" />             
         <ShellContent
             Title="About"
             x:Name="aboutTab"

@@ -43,6 +43,28 @@
         </Border>
         <Border>
             <VerticalStackLayout>
+                <Label
+                    x:Name="InstructionsLabel"
+                    Text="{Binding InstructionsLabelText}" />
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
+                <HorizontalStackLayout>
+                    <Label
+                        x:Name="BuyMeACoffeeLabel"
+                        Style="{StaticResource BuyMeACoffeeLabel}"
+                        Text="{Binding BuyMeACoffeeLabelText}" />
+                    <ImageButton
+                        x:Name="BuyMeACoffeeImageButton"
+                        Style="{StaticResource BuyMeACoffeeImageButton}"
+                        Source="{Binding BuyMeACoffeeImageButtonSource}"
+                        Command="{Binding BuyMeACoffeeCommand}" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+        <Border>
+            <VerticalStackLayout>
                 <Button
                     x:Name="GoToGitHubSourceButton"
                     Text="{Binding GoToGitHubSourceButtonText}"                    
@@ -51,20 +73,6 @@
                     x:Name="GoToGitLabSourceButton"
                     Text="{Binding GoToGitLabSourceButtonText}"                    
                     Command="{Binding GoToGitLabSourceCommand}" />
-            </VerticalStackLayout>
-        </Border>
-        <Border>
-            <VerticalStackLayout>
-                <HorizontalStackLayout>
-                    <Label
-                        x:Name="BuyMeACoffeeLabel"
-                        Text="{Binding BuyMeACoffeeLabelText}" />
-                    <ImageButton
-                        x:Name="BuyMeACoffeeImageButton"
-                        Style="{StaticResource BuyMeACoffeeImageButton}"
-                        Source="{Binding BuyMeACoffeeImageButtonSource}"
-                        Command="{Binding BuyMeACoffeeCommand}"/>
-                </HorizontalStackLayout>
             </VerticalStackLayout>
         </Border>
     </VerticalStackLayout>

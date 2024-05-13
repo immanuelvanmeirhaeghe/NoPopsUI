@@ -27,20 +27,8 @@
                     x:Name="AppSloganLabel"            
                     Style="{StaticResource AppSlogan}"
                     Text="{Binding AppInfo.AppSlogan}"/>
-            </VerticalStackLayout>
-        </Border>
-        <Border>
-            <VerticalStackLayout>
                 <Label
                     x:Name="AppReadMe"
-                    Style="{StaticResource AppReadMe}"
-                    Text="{Binding HomePageLabelText}"/>
-            </VerticalStackLayout>
-        </Border>
-        <Border>
-            <VerticalStackLayout>
-                <Label
-                    x:Name="HomePageLabel"
                     Style="{StaticResource AppReadMe}"
                     Text="{Binding AppInfo.AppReadMe}"/>
             </VerticalStackLayout>

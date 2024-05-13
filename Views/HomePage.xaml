@@ -6,6 +6,11 @@
     <ContentPage.BindingContext>
         <viewmodels:Home />
     </ContentPage.BindingContext>
+    <Shell.TitleView>
+        <HorizontalStackLayout>
+
+        </HorizontalStackLayout>
+    </Shell.TitleView>
     <VerticalStackLayout>
         <Border>
             <VerticalStackLayout>

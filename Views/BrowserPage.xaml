@@ -7,22 +7,28 @@
         <viewmodels:Browser />
     </ContentPage.BindingContext>
     <Shell.TitleView>
-        <HorizontalStackLayout>
-            <ImageButton
+        <ContentView>
+            <ContentView.GestureRecognizers>
+                <PinchGestureRecognizer
+                x:Name="ShellTitleViewPinchGestureRecognizer" />
+            </ContentView.GestureRecognizers>
+            <HorizontalStackLayout>
+                <ImageButton
                 x:Name="GoToHomeImageButton"
                 Style="{StaticResource HomeImageButton}"
                 Source="{Binding GoToHomeImageButtonSource}"
                 Command="{Binding GoToHomeImageButtonCommand}" />
-            <Picker
+                <Picker
                 x:Name="WebsitePicker"
                 Title="{Binding WebsitePickerTitle}"
                 ItemsSource="{Binding WebsitePickerItemsSource}"
                 ItemDisplayBinding="{Binding WebsitePickerSelectedItem.Host}"
                 SelectedItem="{Binding WebsitePickerSelectedItem}" >
-            </Picker>
-        </HorizontalStackLayout>
+                </Picker>
+            </HorizontalStackLayout>
+        </ContentView>
     </Shell.TitleView>
     <WebView
-        x:Name="CustomWebView"
-        Source="{Binding CustomWebViewSource}" />
+            x:Name="CustomWebView"
+            Source="{Binding CustomWebViewSource}" />
 </ContentPage>

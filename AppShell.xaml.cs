@@ -1,6 +1,9 @@
 ﻿using NoPopsUI.Maui.Interfaces;
 using NoPopsUI.Maui.Services;
 using DefaultBrowser = Microsoft.Maui.ApplicationModel.Browser;
+using Microsoft.Maui.Devices.Sensors;
+using Microsoft.Maui.ApplicationModel;
+using NoPopsUI.Maui.Models;
 
 namespace NoPopsUI;
 
@@ -35,8 +38,8 @@ public partial class AppShell : Shell
                 TargetLocation = e.Target.Location;
                 if (CurrentLocation != null && TargetLocation != null)
                 {
-                    CurrentBaseWebsite ??= IWebsite.Create(CurrentLocation);
-                    CurrentTargetWebsite = IWebsite.Create(TargetLocation);
+                    CurrentBaseWebsite ??= Website.Create(CurrentLocation);
+                    CurrentTargetWebsite = Website.Create(TargetLocation);
                     if (CurrentBaseWebsite != null && CurrentTargetWebsite != null
                         && CurrentTargetWebsite.BasePath.ToLowerInvariant().Trim().StartsWith(CurrentBaseWebsite.BasePath.ToLowerInvariant().Trim()))
                     {

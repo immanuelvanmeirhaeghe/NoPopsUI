@@ -1,4 +1,5 @@
 ﻿using NoPopsUI.Maui.Services;
+using Microsoft.Maui.ApplicationModel;
 
 namespace NoPopsUI;
 
